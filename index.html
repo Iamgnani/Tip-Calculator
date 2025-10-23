@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tip Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container" role="main">
+      <h1 class="title">Tip Calculator</h1>
+
+      <section class="card">
+        <div class="field">
+          <label for="bill">Bill Amount</label>
+          <input
+            id="bill"
+            type="number"
+            min="0"
+            step="0.01"
+            placeholder="0.00"
+            aria-describedby="billHelp"
+          />
+          <small id="billHelp" class="hint">Enter the bill total</small>
+        </div>
+
+        <div class="field">
+          <label>Tip Percentage</label>
+          <div
+            class="tips"
+            role="radiogroup"
+            aria-label="Tip percentage presets"
+          >
+            <button class="tip-btn" data-tip="5">5%</button>
+            <button class="tip-btn" data-tip="10">10%</button>
+            <button class="tip-btn" data-tip="15">15%</button>
+            <button class="tip-btn" data-tip="25">25%</button>
+            <button class="tip-btn" data-tip="50">50%</button>
+            <input
+              id="customTip"
+              type="number"
+              min="0"
+              step="0.1"
+              placeholder="Custom"
+              aria-label="Custom tip percentage"
+            />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="people">Number of People</label>
+          <input
+            id="people"
+            type="number"
+            min="1"
+            step="1"
+            value="1"
+            aria-describedby="peopleHelp"
+          />
+          <small id="peopleHelp" class="hint"
+            >How many people are splitting the bill?</small
+          >
+          <div id="peopleError" class="error" aria-live="polite"></div>
+        </div>
+
+        <div class="result">
+          <div class="result-row">
+            <div>
+              <div class="label">Tip Amount</div>
+              <small class="hint">/ person</small>
+            </div>
+            <div class="value" id="tipPerPerson">₹0.00</div>
+          </div>
+          <div class="result-row">
+            <div>
+              <div class="label">Total</div>
+              <small class="hint">/ person</small>
+            </div>
+            <div class="value" id="totalPerPerson">₹0.00</div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="resetBtn" class="reset" disabled>Reset</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
